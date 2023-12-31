@@ -19,6 +19,14 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.BASKET_PRICE_MESSAGE), ("Basket price message is not "
                                                                                     "presented")
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_be_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_MESSAGE), \
+            "Success message is presented, but should be disappear"
+
     def check_product_name_in_message(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         product_name_in_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE).text

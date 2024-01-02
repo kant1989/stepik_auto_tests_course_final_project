@@ -8,7 +8,6 @@ from .pages.product_page import ProductPage
 from .pages.login_page import LoginPage
 
 
-@pytest.mark.smoke
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
